@@ -7,31 +7,29 @@ public class Rating
 
     public Rating()
     {
-        this.total = 0;
-        this.count = 0;
+        count = 0;
     }
 
     public void insert(int rating)
     {
-        this.total = rating;
-        //Tanya ini
-        this.count = this.count + 1;
+        total = total + count;
+        count++;
     }
     
     public long getCount()
     {
-        return this.count;
+        return count;
     }
     
     public long getTotal()
     {
-        return this.total;
+        return total;
     }
     
     public double getAverage()
     {
-        if (this.count != 0){
-            return this.total/this.count;
+        if (count != 0){
+            return total/count;
         } 
         
         return 0;

@@ -2,6 +2,6 @@ package LuthfiMisbachulMunirJSleepFN;
 
 public enum Facility
 {
-    WiFi, Bathub, Balcony, AC, FitnessCenter, 
-    Refrigerator, Restaurant, SwimmingPool;
+    WiFi, Bathtub, Balcony, AC, FitnessCenter, 
+    Refrigerator, Restaurant, SwimmingPool
 }

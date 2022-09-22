@@ -2,7 +2,7 @@
 comment0.target=Rating
 comment1.params=
 comment1.target=Rating()
-comment2.params=x
+comment2.params=rating
 comment2.target=void\ insert(int)
 comment3.params=
 comment3.target=long\ getCount()
