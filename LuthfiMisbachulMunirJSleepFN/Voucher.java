@@ -1,6 +1,6 @@
 package LuthfiMisbachulMunirJSleepFN;
 
-public class Voucher
+public class Voucher extends Serializable
 {
     public Type type;
     public double cut;
@@ -9,6 +9,7 @@ public class Voucher
     public double minimum;
     private boolean used;
 
+    /*
     public Voucher(String name, int code, Type type, double minimum, double cut)
     {
         this.type = type;
@@ -17,12 +18,21 @@ public class Voucher
         this.code = code;
         this.minimum = minimum;
         this.used = used;
+    }*/
+    
+    public Voucher(int id, String name, int code, Type type, boolean used, double minimum, double cut)
+    {
+        super(id);
+        this.type = type;
+        this.cut = cut;
+        this.name = name;
+        this.code = code;
+        this.used = used;
+        this.minimum = minimum;
     }
 
     public boolean canApply(Price price)
     {
-        this.minimum = minimum;
-        this.used = used;
         if (price.price > this.minimum && this.used == false){
             return true;
         }
@@ -44,11 +54,10 @@ public class Voucher
             }
             return price.price - this.cut;
         }
-        
     }
     
     public boolean isUsed(){
         this.used = used;
         return this.used;
     }
-}
+} 

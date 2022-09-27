@@ -5,18 +5,19 @@ import java.lang.Math;
 
 public class JSleep {
     public static void main (String[] args){
-        Room bismillah = createRoom();
-        System.out.println(bismillah.name);
-        System.out.println(bismillah.size);
-        System.out.println(bismillah.price.price);
-        System.out.println(bismillah.facility);
+        Payment testRoom = new Payment (1, 1, 1, "", 1, "", "");
+        Invoice testInvoice = new Invoice (2, 2, 2, "");
+        System.out.println (testRoom.print());
+        System.out.println (testInvoice.print());
     }
     
+    /*
     public static Room createRoom(){
         Price price = new Price (100000, 5);
         Room room = new Room ("hotel", 30, price, Facility.AC);
         return room;
-    }
+    }*/
+    
     /*
     //This method return 0
     static int getHotelId (){
