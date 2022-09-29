@@ -5,8 +5,5 @@ comment1.target=Price(double,\ double)
 comment2.params=price
 comment2.target=Price(double)
 comment3.params=
-comment3.target=double\ getDiscountedPrice()
-comment3.text=\r\n\ \ \ \ public\ Price(double\ price,\ double\ rebate)\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ this.price\ \=\ price;\r\n\ \ \ \ \ \ \ \ this.discount\ \=\ 0;\r\n\ \ \ \ \ \ \ \ this.rebate\ \=\ rebate;\r\n}
-comment4.params=
-comment4.target=double\ getRebatedPrice()
-numComments=5
+comment3.target=java.lang.String\ toString()
+numComments=4

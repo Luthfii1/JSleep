@@ -20,14 +20,18 @@ public class Price
         this.rebate = 0;
     }
     
+    public String toString(){
+        return "\nHarga Total : " + this.price + "\nDiscount : " + this.discount + "\nPotongan : " + this.rebate;
+    }
+    
     /*
     public Price(double price, double rebate)
     {
         this.price = price;
         this.discount = 0;
         this.rebate = rebate;
-    }*/
-
+    }
+    
     private double getDiscountedPrice()
     {
         if (discount > 100){
@@ -44,5 +48,5 @@ public class Price
             return 0.0;
         }
         return price - rebate;
-    }
+    }*/
 }
