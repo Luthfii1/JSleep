@@ -1,10 +1,11 @@
 #BlueJ class context
 comment0.target=Invoice
 comment0.text=\r\n\ \r\n\ @author\ Luthfi\ Misbachul\ Munir\r\n\ @version\ 29\ September\ 2022\r\n
-comment1.params=id\ buyerId\ renterId\ time
-comment1.target=Invoice(int,\ int,\ int,\ java.lang.String)
-comment2.params=id\ buyer\ renter\ time
-comment2.target=Invoice(int,\ Account,\ Renter,\ java.lang.String)
+comment1.params=id\ buyerId\ renterId
+comment1.target=Invoice(int,\ int,\ int)
+comment2.params=id\ buyer\ renter
+comment2.target=Invoice(int,\ Account,\ Renter)
+comment2.text=\r\n\ \ \ \ protected\ Invoice(int\ id,\ int\ buyerId,\ int\ renterId,\ String\ time)\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ super(id);\r\n\ \ \ \ \ \ \ \ this.buyerId\ \=\ buyerId;\r\n\ \ \ \ \ \ \ \ this.renterId\ \=\ renterId;\r\n\ \ \ \ \ \ \ \ this.time\ \=\ time;\r\n\ \ \ \ \ \ \ \ this.rating\ \=\ RoomRating.NONE;\r\n\ \ \ \ \ \ \ \ this.status\ \=\ PaymentStatus.WAITING;\r\n}
 comment3.params=
 comment3.target=java.lang.String\ print()
 numComments=4

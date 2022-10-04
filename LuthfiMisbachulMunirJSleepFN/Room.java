@@ -5,7 +5,7 @@ package LuthfiMisbachulMunirJSleepFN;
  * @version 29 September 2022
  */
 
-public class Room extends Serializable
+public class Room extends Serializable implements FileParser
 {
     public int size;
     public String name;
@@ -14,6 +14,16 @@ public class Room extends Serializable
     public String address;
     public BedType bedType;
     public City city;
+    
+    @Override
+    public Object write(){
+        return null;
+    }
+    
+    @Override
+    public boolean read (String a){
+        return true;
+    }
 
     public Room(int id, String name, int size, Price price, 
                 Facility facility, City city, String address)
