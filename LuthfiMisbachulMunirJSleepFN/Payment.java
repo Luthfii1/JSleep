@@ -39,12 +39,12 @@ public class Payment extends Invoice
     }
     
     public String getTime(){
-        SimpleDateFormat date = new SimpleDateFormat("'Formatted Date:' dd/MM/yyyy");
+        SimpleDateFormat date = new SimpleDateFormat("'Formatted Date:' dd MMMM yyyy");
         return date.format(this.from.getTime());
     }
     
     public String getDuration(){
-        SimpleDateFormat date = new SimpleDateFormat("'Formatted Date:' dd/MM/yyyy");
+        SimpleDateFormat date = new SimpleDateFormat("dd MMMM yyyy");
         return date.format(this.from.getTime()) + " - " + date.format(this.to.getTime());
     }
 }

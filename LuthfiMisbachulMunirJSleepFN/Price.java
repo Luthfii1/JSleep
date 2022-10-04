@@ -21,7 +21,7 @@ public class Price
     }
     
     public String toString(){
-        return "\nHarga Total : " + this.price + "\nDiscount : " + this.discount + "\nPotongan : " + this.rebate;
+        return this.price + "";
     }
     
     /*

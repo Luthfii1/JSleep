@@ -23,14 +23,14 @@ public class JSleep {
             unfilteredArray[i] = new Price((i+1)*j);
         }
         
-        System.out.println("Price List");
+        System.out.println("\nPrice List");
         for(int i=0;i < unfilteredArray.length;i++){
             System.out.println(unfilteredArray[i].price);
         }
 
-        System.out.println("Below 12000.0");
+        System.out.println("\nBelow 12000.0");
         System.out.println(Validate.filter(unfilteredArray, 12000,true));
-        System.out.println("Above 10000.0");
+        System.out.println("\nAbove 10000.0");
         System.out.println(Validate.filter(unfilteredArray, 10000,false));
     }
     /*
