@@ -7,38 +7,20 @@ import java.util.ArrayList;
  * @author Luthfi Misbachul Munir
  * @version 04 October 2022
  */
-public class Validate
-{
-    /**
-     * Constructor for objects of class Validate
-     */
-    public Validate()
-    {
-        
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public static ArrayList<Price> filter(Price[] list, int value, boolean less)
-    {
-        ArrayList<Price> val = new ArrayList<Price>();
-        
-        int i, size = list.length;
-        for(i = 0; i<size; i++){
-            if(less == true){
-                if(list[i].price <= value){
-                    val.add(list[i]);
+public class Validate{
+    public static ArrayList filter(Price[] list, int value, boolean less) {
+        ArrayList result = new ArrayList<Price>();
+        for (Price p: list) {
+            if (less == true){
+                if (p.price <= value){
+                    result.add(p.price);
                 }
-            } else {
-                if(list[i].price > value){
-                    val.add(list[i]);
+            } else{
+                if(p.price > value) {
+                    result.add(p.price);
                 }
             }
         }
-        return val;
+        return result;
     }
 }

@@ -1,6 +1,7 @@
 package LuthfiMisbachulMunirJSleepFN;
 import java.util.Calendar;
 import java.text.*;
+import java.util.Date;
 
 /**
  * 
@@ -12,7 +13,7 @@ public class Invoice extends Serializable
 {
     public int buyerId;
     public int renterId;
-    public Calendar time;
+    public Date time;
     public PaymentStatus status;
     public RoomRating rating;
     
@@ -29,28 +30,17 @@ public class Invoice extends Serializable
         super(id);
         this.buyerId = buyerId;
         this.renterId = renterId;
-        this.time = Calendar.getInstance();
+        this.time = new Date();
         this.rating = RoomRating.NONE;
         this.status = PaymentStatus.WAITING;
     }
-    
-    /*
-    protected Invoice(int id, int buyerId, int renterId, String time)
-    {
-        super(id);
-        this.buyerId = buyerId;
-        this.renterId = renterId;
-        this.time = time;
-        this.rating = RoomRating.NONE;
-        this.status = PaymentStatus.WAITING;
-    }*/
     
     public Invoice(int id, Account buyer, Renter renter)
     {
         super(id);
         this.buyerId = buyer.id;
         this.renterId = renter.id;
-        this.time = Calendar.getInstance();
+        this.time = new Date();
         this.rating = RoomRating.NONE;
         this.status = PaymentStatus.WAITING;
     }

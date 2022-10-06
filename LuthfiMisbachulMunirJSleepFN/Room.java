@@ -1,4 +1,5 @@
 package LuthfiMisbachulMunirJSleepFN;
+import java.util.*;
 
 /**
  * @author Luthfi Misbachul Munir
@@ -14,6 +15,7 @@ public class Room extends Serializable implements FileParser
     public String address;
     public BedType bedType;
     public City city;
+    public ArrayList<Date> booked = new ArrayList<Date>();
     
     @Override
     public Object write(){

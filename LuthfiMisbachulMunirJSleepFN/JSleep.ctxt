@@ -3,4 +3,6 @@ comment0.target=JSleep
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 comment1.text=\r\n\ \ \ \ public\ static\ void\ main\ (String[]\ args){\r\n\ \ \ \ \ \ \ \ Payment\ testRoom\ \=\ new\ Payment\ (1,\ 1,\ 1,\ "",\ 1,\ "",\ "");\r\n\ \ \ \ \ \ \ \ Invoice\ testInvoice\ \=\ new\ Invoice\ (2,\ 2,\ 2,\ "");\r\n\ \ \ \ \ \ \ \ System.out.println\ (testRoom.print());\r\n\ \ \ \ \ \ \ \ System.out.println\ (testInvoice.print());\r\n}
-numComments=2
+comment2.params=
+comment2.target=Room\ createRoom()
+numComments=3
