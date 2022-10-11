@@ -14,7 +14,18 @@ public class JSleep {
     }*/
     
     public static void main(String[] args){
-        System.out.println("Hello Aslab FN");
+        ArrayList<Room> Rooms = new ArrayList<Room>();
+        for (int i =0;i<5 ;i++){
+            Rooms.add(i, JSleep.createRoom());
+            System.out.println(Rooms.get(i).toString());
+        }
+    }
+
+    public static Room createRoom(){
+        Price price = new Price(100000.0,5);
+        Room room = new Room("Restaurant",30,price,Facility.AC,City.JAKARTA,"Jl.Medan");
+        return room;
+    }
         /*
         Room RoomA = JSleep.createRoom();
         Room RoomB = JSleep.createRoom();
@@ -39,13 +50,6 @@ public class JSleep {
         Date end = Date.valueOf("2022-8-15");
         System.out.println(Payment.makeBooking(start, end, RoomA));
          */
-    }
-    
-    public static Room createRoom(){
-        Price price = new Price (100000, 5);
-        Room room = new Room (1, "hotel", 30, price, Facility.AC, City.BANDUNG, "Jl. Aja dulu");
-        return room;
-    }
     
     /*
     //This method return 0
