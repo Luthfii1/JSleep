@@ -1,8 +1,10 @@
 package LuthfiMisbachulMunirJSleepFN;
 
 import javax.lang.model.type.NullType;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 public class Algorithm {
     public static <T> int count(Iterator<T> iterate, T data){
@@ -120,4 +122,81 @@ public class Algorithm {
         final Iterator<T> temp = iterate.iterator();
         return find(temp,data);
     }
+
+    public static <T> List<T> collect(Iterable<T> iterate, T data){
+        final Iterable<T> temp = (Iterable<T>) iterate.iterator();
+        return collect(temp, data);
+    }
+
+    public static <T> List<T> collect(Iterable<T> iterate, Predicate<T> data){
+        final Iterable<T> temp = (Iterable<T>) iterate.iterator();
+        return collect(temp, data);
+    }
+
+    public static <T> List<T> collect(T[] arr, T data){
+        final Iterator<T> temp = Arrays.stream(arr).iterator();
+        return collect(temp, data);
+    }
+
+    public static <T> List<T> collect(Iterator<T> iterate, T data){
+        final Predicate<T> pred = data::equals;
+        return collect(iterate, data);
+    }
+
+    public static <T> List<T> collect(T[] arr, Predicate<T> data){
+        final Iterator<T> temp = Arrays.stream(arr).iterator();
+        return collect(temp, data);
+    }
+
+    public static <T> List<T> collect(Iterator<T> iterate, Predicate<T> data){
+        int num = 0;
+        while(iterate.hasNext()){
+            num++;
+        }
+        final Predicate<T> pred = data::equals;
+        return collect(iterate, data);
+    }
+
+    public static <T> List<T> paginate(T[] arr, int page, int pageSize, Predicate<T> data){
+        int i = 0;
+        int occur = 0;
+        int first = page * pageSize;
+        List<T> List = new ArrayList<>(pageSize);
+
+        for (; i < arr.length && occur < first; ++i) {
+            if (data.predicate(arr[i])) {
+                ++occur;
+            }
+        }
+        for (int j = 0; j < arr.length && List.size() < pageSize; ++j) {
+            if (data.predicate(arr[j])) {
+                List.add(arr[j]);
+            }
+        }
+        return List;
+    }
+
+    public static <T> List<T> paginate(Iterator<T> iterate, int page, int pageSize, Predicate<T> data){
+        int first = page * pageSize;
+        int last = pageSize * (page + 1) - 1;
+        int loop = 0;
+
+        List<T> list = new ArrayList<>();
+
+        while (iterate.hasNext() == true) {
+            T going = iterate.next();
+            if ((loop >= first) && (data.predicate(going)) && (loop <= last)) {
+                list.add(going);
+            }
+            loop++;
+        }
+        return list;
+    }
+
+    public static <T> List<T> paginate(Iterable<T> iterate, int page, int pageSize, Predicate<T> data){
+        final Iterator<T> temp = iterate.iterator();
+        return paginate(temp, page, pageSize, data);
+    }
 }
+
+
