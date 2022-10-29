@@ -7,20 +7,23 @@ import java.util.ArrayList;
  * @author Luthfi Misbachul Munir
  * @version 04 October 2022
  */
-public class Validate{
-    public static ArrayList filter(Price[] list, int value, boolean less) {
-        ArrayList result = new ArrayList<Price>();
-        for (Price p: list) {
-            if (less == true){
-                if (p.price <= value){
-                    result.add(p.price);
-                }
-            } else{
-                if(p.price > value) {
-                    result.add(p.price);
+public class Validate {
+    public static ArrayList filter (Price[] list, int value, boolean less){
+        ArrayList filteredPrice = new ArrayList();
+        if(less == true) {
+            for (Price iterator : list) {
+                if(iterator.price <= value){
+                    filteredPrice.add(iterator.price);
                 }
             }
         }
-        return result;
+        else{
+            for (Price iterator : list) {
+                if(iterator.price > value){
+                    filteredPrice.add(iterator.price);
+                }
+            }
+        }
+        return filteredPrice;
     }
 }
