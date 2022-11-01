@@ -1,8 +1,13 @@
 package LuthfiMisbachulMunirJSleepFN;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Renter extends Serializable
 {
-    public int phoneNumber = 0;
+    public String phoneNumber;
+    final String REGEX_NAME = "^[A-Z][A-Za-z0-9_]{5,20}$";
+    final String REGEX_PHONE = "^[0-9]{9,12}$";
     public String address;
     public String username;
     
@@ -10,7 +15,7 @@ public class Renter extends Serializable
     {
         super();
         this.username = username;
-        this.phoneNumber = phoneNumber;
+        this.phoneNumber = String.valueOf(phoneNumber);
     }
     
     public Renter(String username)
@@ -26,18 +31,15 @@ public class Renter extends Serializable
         this.address = address;
     }
     
-    public Renter(String username, int phoneNumber, String address)
+    public Renter(String username, String phoneNumber, String address)
     {
         super();
         this.username = username;
         this.address = address;
-        this.phoneNumber = phoneNumber;
+        this.phoneNumber = String.valueOf(phoneNumber);
     }
 
-    /* INI HARUSNYA GA KEPAKE
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }*/
+    public boolean validate(){
+        return username.matches(REGEX_NAME) && phoneNumber.matches(REGEX_PHONE);
+    }
 }

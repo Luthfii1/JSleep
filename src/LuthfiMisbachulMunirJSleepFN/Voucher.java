@@ -1,6 +1,6 @@
 package LuthfiMisbachulMunirJSleepFN;
 
-public class Voucher extends Serializable implements FileParser
+public class Voucher extends Serializable
 {
     public Type type;
     public double cut;
@@ -9,12 +9,10 @@ public class Voucher extends Serializable implements FileParser
     public double minimum;
     private boolean used;
 
-    @Override
     public Object write(){
         return null;
     }
-    
-    @Override
+
     public boolean read (String a){
         return true;
     }

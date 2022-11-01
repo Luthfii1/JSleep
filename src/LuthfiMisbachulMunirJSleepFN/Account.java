@@ -1,17 +1,15 @@
 package LuthfiMisbachulMunirJSleepFN;
 
-public class Account extends Serializable implements FileParser
+public class Account extends Serializable
 {
     public String name;
     public String email;
     public String password;
-    
-    @Override
+
     public Object write(){
         return null;
     }
-    
-    @Override
+
     public boolean read (String a){
         return true;
     }

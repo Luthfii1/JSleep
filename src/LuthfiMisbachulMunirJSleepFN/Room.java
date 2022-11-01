@@ -6,9 +6,10 @@ import java.util.*;
  * @version 29 September 2022
  */
 
-public class Room extends Serializable implements FileParser
+public class Room extends Serializable
 {
     public int size;
+    public int accountId;
     public String name;
     public Facility facility;
     public Price price;
@@ -16,18 +17,16 @@ public class Room extends Serializable implements FileParser
     public BedType bedType;
     public City city;
     public ArrayList<Date> booked = new ArrayList<Date>();
-    
-    @Override
+
     public Object write(){
         return null;
     }
-    
-    @Override
+
     public boolean read (String a){
         return true;
     }
 
-    public Room( String name, int size, Price price,
+    public Room(int accountId, String name, int size, Price price,
                 Facility facility, City city, String address)
     {
         super();
