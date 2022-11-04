@@ -35,8 +35,8 @@ public class JSleep {
         {
             t.printStackTrace();
         }
-        Account testRegex = new Account("Luthfi","luthfimisbachul@gmail.com", "kePo872");
-        Account testRegexFail =new Account("Luthfi","luthfi-misbachul@gmail.com", "kepo872");
+        Account testRegex = new Account("Luthfi", "luthfimisbachul@gmail.com", "luThF199");
+        Account testRegexFail =new Account("Lutfhi","luthfi-misbachul@gmail.com", "luthf199");
         System.out.println(testRegex.validate());
         System.out.println(testRegexFail.validate());
         for(int i=0; i<10; i++){
