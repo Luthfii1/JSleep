@@ -1,5 +1,7 @@
 package com.LuthfiMisbachulMunirJSleepFN;
 
+import com.LuthfiMisbachulMunirJSleepFN.dbjson.Serializable;
+
 public class Voucher extends Serializable
 {
     public Type type;

@@ -1,7 +1,11 @@
 package com.LuthfiMisbachulMunirJSleepFN;
 
+import com.LuthfiMisbachulMunirJSleepFN.dbjson.Serializable;
+
 public class Account extends Serializable
 {
+    public double balance;
+    public Renter renter;
     public String name;
     public String email;
     public String password;
@@ -23,6 +27,8 @@ public class Account extends Serializable
         this.name = name;
         this.email = email;
         this.password = password;
+        this.balance = 0;
+        this.renter = null;
     }
     
     public String toString(){

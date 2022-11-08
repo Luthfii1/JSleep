@@ -1,6 +1,7 @@
 package com.LuthfiMisbachulMunirJSleepFN;
 
-import java.util.regex.Pattern;
+import com.LuthfiMisbachulMunirJSleepFN.dbjson.Serializable;
+
 public class Renter extends Serializable
 {
     public static final String REGEX_NAME ="^[A-Z][A-Za-z0-9_]{4,20}$";

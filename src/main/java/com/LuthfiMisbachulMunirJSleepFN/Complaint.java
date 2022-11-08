@@ -1,6 +1,8 @@
 package com.LuthfiMisbachulMunirJSleepFN;
 
 
+import com.LuthfiMisbachulMunirJSleepFN.dbjson.Serializable;
+
 /**
  * Write a description of class Complaint here.
  *

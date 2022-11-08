@@ -1,4 +1,6 @@
 package com.LuthfiMisbachulMunirJSleepFN;
+import com.LuthfiMisbachulMunirJSleepFN.dbjson.Serializable;
+
 import java.util.*;
 
 /**
