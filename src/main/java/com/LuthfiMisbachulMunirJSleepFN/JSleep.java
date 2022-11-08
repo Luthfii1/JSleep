@@ -2,6 +2,7 @@ package com.LuthfiMisbachulMunirJSleepFN;
 
 import java.util.*;
 
+import com.LuthfiMisbachulMunirJSleepFN.dbjson.JsonDBEngine;
 import com.LuthfiMisbachulMunirJSleepFN.dbjson.JsonTable;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +15,10 @@ public class JSleep {
         public List<String> listOfStates;
     }*/
     public static void main(String[] args) {
+        JsonDBEngine.Run(JSleep.class);
         SpringApplication.run(JSleep.class, args);
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> JsonDBEngine.join()));
+        /*SpringApplication.run(JSleep.class, args);
         try {
             String filepath = "C:\\Users\\luthf\\Documents\\Luthfi\\Kuliah UI\\Semesteran\\Semester 3\\PBO\\Praktikum\\Modul 1\\src\\json\\randomRoomList.json";
             JsonTable<Room> tableRoom = new JsonTable<>(Room.class, filepath);
@@ -40,10 +44,10 @@ public class JSleep {
         System.out.println(testRegexFail.validate());
         for(int i=0; i<10; i++){
             ThreadingObject thread = new ThreadingObject("Thread " + i);
-        }
+        }*/
     }
 
-    public static Room createRoom(){
+    /*public static Room createRoom(){
         Price price = new Price(10000.0, 10);
         Room room = new Room(2, "Restaurant", 35, price, Facility.AC, City.BALI, "Jl. jalan");
         return room;
@@ -58,5 +62,5 @@ public class JSleep {
 
     public static List<Room> filterByCity(List<Room> list, String search, int page, int pageSize){
         return Algorithm.paginate(list, page, pageSize, room -> room.city.toString().toLowerCase().contains(search.toLowerCase()));
-    }
+    }*/
 }
