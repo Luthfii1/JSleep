@@ -2,6 +2,7 @@ package com.LuthfiMisbachulMunirJSleepFN.controller;
 
 import com.LuthfiMisbachulMunirJSleepFN.Account;
 import com.LuthfiMisbachulMunirJSleepFN.Algorithm;
+import com.LuthfiMisbachulMunirJSleepFN.Price;
 import com.LuthfiMisbachulMunirJSleepFN.Voucher;
 import com.LuthfiMisbachulMunirJSleepFN.dbjson.JsonAutowired;
 import com.LuthfiMisbachulMunirJSleepFN.dbjson.JsonTable;
@@ -27,16 +28,10 @@ public class VoucherController implements BasicGetController<Voucher>{
 
     @GetMapping("/{id}/canApply")
     @ResponseBody
-    boolean canApply(
-            @PathVariable int id,
-            @RequestParam double price){
-        for(Voucher Voucher : voucherTable)
-        {
-            if (Voucher.id == id) {
-                return Voucher.canApply(price);
-            }
-        }
-        return false;
+    boolean canApply(@PathVariable int id, @RequestParam double price)
+    {
+        Voucher apply = Algorithm.<Voucher>find(getJsonTable(), pred -> pred.id == id);
+        return apply.canApply(new Price(price));
     }
 
     @GetMapping("/getAvailable")

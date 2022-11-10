@@ -8,85 +8,36 @@ import java.util.*;
  * @version 29 September 2022
  */
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Room extends Serializable
 {
-    public int size;
-    public String name;
+    public BedType bedType;
     public int accountId;
     public Facility facility;
-    public BedType bedType;
-    public Price price;
-    public String address;
     public City city;
+    public int size;
+    public String name;
     public ArrayList<Date> booked;
+    public String address;
+    public Price price;
 
-    public Room(int accountId, String name, int size, int price, Facility facility, City city, String address){
+    public Room(int accountId, String name, int size, Price price, Facility facility, City city, String address){
         super();
+        this.accountId = accountId;
         this.name = name;
         this.size = size;
         this.price = price;
-        this.city = city;
         this.facility = facility;
+        this.city = city;
         this.address = address;
         this.bedType = BedType.SINGLE;
-        this.accountId = accountId;
         this.booked = new ArrayList<Date>();
+
     }
+
     public String toString(){
-        return "Id : " + id
-                + "\n" + "Name : "
-                + name + "\n" + "Size : "
-                + size + "\n" + "Price : "
-                + price.price +"\n" + "Facility : "
-                + facility + "\n" + "City : "
-                + city + "\n" + "Address : "
-                + address
-                + "\n";
-    }
-    public Object write(){
-        return null;
-    }
-    public boolean read(String A){
-        return false;
+        return "Room\nId: " + accountId + ", Name: " + name + ", Size: " + size + ", Price: " + price.price + ", Facility: " + facility + ", City: " + city + ", Address: " + address  + ", Bed Type: " + bedType;
     }
 }
-
-/*public class Room extends Serializable
-{
-    public int size;
-    public int accountId;
-    public String name;
-    public Facility facility;
-    public Price price;
-    public String address;
-    public BedType bedType;
-    public City city;
-    public ArrayList<Date> booked = new ArrayList<Date>();
-
-    public Object write(){
-        return null;
-    }
-
-    public boolean read (String a){
-        return true;
-    }
-
-    public Room(int accountId, String name, int size, Price price,
-                Facility facility, City city, String address)
-    {
-        super();
-        this.name = name;
-        this.size = size;
-        this.price = price;
-        this.facility = facility;
-        this.city = city;
-        this.address = address;
-        this.bedType = bedType.SINGLE;
-    }
-    
-    public String toString(){
-        return  "\nid Pelanggan : " + id + "\nNama : " + this.name + "\nSize : " + this.size + 
-                "\nHarga : " + this.price + "\nFasilitas : " + this.facility + "\nKota : " + 
-                this.city + "\nAlamat : " + this.address;
-    }
-}*/
