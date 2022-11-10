@@ -23,12 +23,11 @@ public class RoomController implements BasicGetController<Room>{
             @RequestParam City city,
             @RequestParam String address
             ){
-        for(Account each : AccountController.accountTable) {
-            if (each.id == accountId && each.renter != null){
-                Room room =  new Room(accountId, name, size, price, facility, city, address);
-                roomTable.add(room);
-                return room;
-            }
+        Account account = Algorithm.<Account>find(AccountController.accountTable, pred -> pred.id == accountId && pred.renter != null);
+        if (account != null) {
+            Room room = new Room(accountId, name, size, new Price(price), facility, city, address);
+            roomTable.add(room);
+            return room;
         }
         return null;
     }
