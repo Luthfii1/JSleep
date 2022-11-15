@@ -9,12 +9,28 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/room")
-public class RoomController implements BasicGetController<Room>{
-    @JsonAutowired(value= Room.class,filepath = "src/json/room.json")
+public class RoomController implements BasicGetController<Room> {
+
+    @JsonAutowired(value = Room.class, filepath = "src\\json\\.json")
     public static JsonTable<Room> roomTable;
 
+    @Override
+    public JsonTable<Room> getJsonTable() {
+        return roomTable;
+    }
+
+    @GetMapping("/{id}/renter")
+    List<Room> getRoomByRenter
+            (
+                    @PathVariable int id,
+                    @RequestParam int page,
+                    @RequestParam int pageSize
+            ){
+        return Algorithm.paginate(getJsonTable(), page, pageSize, pred -> pred.accountId == id);
+    }
+
     @PostMapping("/create")
-    Room create(
+    public Room create(
             @RequestParam int accountId,
             @RequestParam String name,
             @RequestParam int size,
@@ -22,27 +38,13 @@ public class RoomController implements BasicGetController<Room>{
             @RequestParam Facility facility,
             @RequestParam City city,
             @RequestParam String address
-            ){
+    ){
         Account account = Algorithm.<Account>find(AccountController.accountTable, pred -> pred.id == accountId && pred.renter != null);
-        if (account != null) {
+        if(account == null) return null;
+        else{
             Room room = new Room(accountId, name, size, new Price(price), facility, city, address);
             roomTable.add(room);
             return room;
         }
-        return null;
-    }
-
-    @Override
-    public JsonTable<Room> getJsonTable(){
-        return roomTable;
-    }
-
-    @GetMapping("/{id}/renter")
-    @ResponseBody
-    List<Room> getRoomByRenter(
-            @PathVariable int id,
-            @RequestParam int page,
-            @RequestParam int pageSize){
-        return Algorithm.paginate(roomTable, page, pageSize,pred->pred.accountId == id);
     }
 }

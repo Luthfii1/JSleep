@@ -8,49 +8,49 @@ import com.LuthfiMisbachulMunirJSleepFN.dbjson.JsonAutowired;
 import com.LuthfiMisbachulMunirJSleepFN.dbjson.JsonTable;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/voucher")
-public class VoucherController implements BasicGetController<Voucher>{
-    @JsonAutowired(value = Voucher.class,filepath = "src/json/voucher.json")
+public class VoucherController implements BasicGetController<Voucher> {
+    @JsonAutowired(value= Account.class,filepath = "src\\json\\.json")
     public static JsonTable<Voucher> voucherTable;
 
-
-    public VoucherController() {
-
-    }
-
     @Override
-    public JsonTable<Voucher> getJsonTable(){
+    public JsonTable<Voucher> getJsonTable() {
         return voucherTable;
     }
 
-    @GetMapping("/{id}/canApply")
-    @ResponseBody
-    boolean canApply(@PathVariable int id, @RequestParam double price)
-    {
-        Voucher apply = Algorithm.<Voucher>find(getJsonTable(), pred -> pred.id == id);
-        return apply.canApply(new Price(price));
+    @GetMapping("/{id}/isUsed")
+    boolean isUsed(
+            @RequestParam int id
+    ){
+        Voucher voucher = Algorithm.<Voucher>find(getJsonTable(), pred -> pred.id == id);
+        return voucher.isUsed();
+    }
+
+    @GetMapping("/{id}/canApply ")
+    boolean canApply(
+            @RequestParam int id,
+            @RequestParam double price
+    ){
+        Voucher voucher = Algorithm.<Voucher>find(getJsonTable(), pred -> pred.id == id);
+        return voucher.canApply(new Price(price));
     }
 
     @GetMapping("/getAvailable")
-    @ResponseBody
     List<Voucher> getAvailable(
             @RequestParam int page,
-            @RequestParam int pageSize){
-        return Algorithm.paginate(voucherTable, page, pageSize, pred-> !pred.isUsed());
-    }
-
-    @GetMapping("/{id}/isUsed")
-    @ResponseBody
-    boolean isUsed(@PathVariable int id){
-        for(Voucher each : voucherTable)
-        {
-            if (each.id == id) {
-                return each.isUsed();
+            @RequestParam int pageSize
+    ){
+        List<Voucher> collectVoucher = Algorithm.<Voucher>collect(getJsonTable(), pred -> true);
+        List<Voucher> availableVoucher = new ArrayList<>();
+        for(Voucher voucher : collectVoucher){
+            if(!voucher.isUsed()){
+                availableVoucher.add(voucher);
             }
         }
-        return false;
+        return Algorithm.<Voucher>paginate(availableVoucher, page, pageSize, pred -> true);
     }
 }
