@@ -23,30 +23,4 @@ public class Price
     public String toString(){
         return this.price + "";
     }
-    
-    /*
-    public Price(double price, double rebate)
-    {
-        this.price = price;
-        this.discount = 0;
-        this.rebate = rebate;
-    }
-    
-    private double getDiscountedPrice()
-    {
-        if (discount > 100){
-            discount = 100;
-        } else if (discount == 100){
-            return  0;
-        } 
-        return price - (price * discount / 100);
-    }
-    
-    private double getRebatedPrice()
-    {
-        if(rebate > price){
-            return 0.0;
-        }
-        return price - rebate;
-    }*/
 }
