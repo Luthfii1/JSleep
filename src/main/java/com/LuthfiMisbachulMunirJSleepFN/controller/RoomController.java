@@ -4,7 +4,7 @@ import com.LuthfiMisbachulMunirJSleepFN.*;
 import com.LuthfiMisbachulMunirJSleepFN.dbjson.JsonAutowired;
 import com.LuthfiMisbachulMunirJSleepFN.dbjson.JsonTable;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -29,13 +29,22 @@ public class RoomController implements BasicGetController<Room> {
         return Algorithm.paginate(getJsonTable(), page, pageSize, pred -> pred.accountId == id);
     }
 
+    @GetMapping("/getAllRoom")
+    List<Room> getAllRoom(
+            @RequestParam int page,
+            @RequestParam int pageSize
+
+    ){
+        return Algorithm.<Room>paginate(getJsonTable(), page, pageSize, pred -> true);
+    }
+
     @PostMapping("/create")
     public Room create(
             @RequestParam int accountId,
             @RequestParam String name,
             @RequestParam int size,
             @RequestParam int price,
-            @RequestParam Facility facility,
+            @RequestParam ArrayList<Facility> facility,
             @RequestParam City city,
             @RequestParam String address
     ){
