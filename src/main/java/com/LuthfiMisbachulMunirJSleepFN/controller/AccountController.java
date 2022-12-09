@@ -56,6 +56,9 @@ public class AccountController implements BasicGetController<Account>
         boolean matchFoundPassword = matcherPassword.find();
 
         Account findAccount = Algorithm.<Account> find(getJsonTable(),pred -> pred.email.equals(email));
+        System.out.println(findAccount == null);
+        System.out.println(matchEmail);
+        System.out.println(matchFoundPassword);
 
         if (findAccount == null && matchEmail && matchFoundPassword) {
             final String generatedPassword;
@@ -69,7 +72,10 @@ public class AccountController implements BasicGetController<Account>
     @PostMapping("/{id}/registerRenter")
     Renter registerRenter(@PathVariable int id, @RequestParam String username, @RequestParam String address,
                           @RequestParam String phoneNumber ){
-
+        System.out.println(id);
+        System.out.println(username);
+        System.out.println(address);
+        System.out.println(phoneNumber);
         Account temp = Algorithm.<Account>find(accountTable,pred -> pred.id == id);
         if(temp.renter == null && temp != null){
             temp.renter = new Renter(username, address, phoneNumber);
