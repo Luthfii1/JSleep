@@ -67,7 +67,4 @@ public class RoomController implements BasicGetController<Room> {
     ){
         return Algorithm.paginate(getJsonTable(), page, pageSize, pred -> true);
     }
-
-
-
 }

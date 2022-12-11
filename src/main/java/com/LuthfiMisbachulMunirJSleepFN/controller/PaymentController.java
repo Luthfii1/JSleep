@@ -37,14 +37,6 @@ public class PaymentController implements BasicGetController<Payment> {
             fromtgl = sdf.parse(from);
             totgl = sdf.parse(to);
             System.out.println("date  "+totgl);
-            // if(cari.balance>=hargaKamar&&Payment.availability(fromtgl, totgl, cariruang)){
-            //     Payment baru = new Payment(buyerId,renterId,roomId,fromtgl,totgl);
-            //     baru.status=Invoice.PaymentStatus.WAITING;
-            //     Payment.makeBooking(fromtgl, totgl, cariruang);
-            //     System.out.println("response backend: "+baru.toString());
-            //     paymentTable.add(baru);
-            //     return baru;
-            // }
         }
         catch (ParseException e){
             e.printStackTrace();

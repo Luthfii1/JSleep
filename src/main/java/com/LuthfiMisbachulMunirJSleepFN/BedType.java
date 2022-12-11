@@ -1,12 +1,21 @@
 package com.LuthfiMisbachulMunirJSleepFN;
 
 /**
- * Write a description of class Complaint here.
+ * Enum representing the type of a bed.
  *
- * @author Luthfi Misbachul Munir
- * @version 29 September 2022
+ * @author Your Name
  */
 public enum BedType
 {
-    SINGLE, QUEEN, KING, DOUBLE
+    /** Single bed. */
+    SINGLE,
+
+    /** Queen-sized bed. */
+    QUEEN,
+
+    /** King-sized bed. */
+    KING,
+
+    /** Double bed. */
+    DOUBLE
 }
