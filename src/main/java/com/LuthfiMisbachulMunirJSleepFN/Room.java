@@ -32,7 +32,7 @@ public class Room extends Serializable {
         this.name = name;
         this.size = size;
         this.price = price;
-        this.facility.addAll(facility);
+        this.facility = facility;
         this.booked = new ArrayList<Date>();
         this.bedType = bedType;
     }
@@ -47,6 +47,4 @@ public class Room extends Serializable {
                 "\nAddress : " + address +
                 "\nId : " + id + "\n\n";
     }
-
-
 }

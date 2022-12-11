@@ -10,6 +10,7 @@ public class Payment extends Invoice
     public Date from;
     private int roomId;
 
+    // create javadoc
     public Payment(int buyerId, int renterId,int roomId,Date from,Date to)
     {
         super(buyerId, renterId);

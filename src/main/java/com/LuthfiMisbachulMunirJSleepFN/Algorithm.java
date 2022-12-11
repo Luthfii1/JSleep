@@ -30,6 +30,17 @@ public class Algorithm {
         return count(it, pred);
     }
 
+    /**
+     * It initializes a local variable called count to 0. This variable will be used to keep track of the number
+     * of elements in the iterator that satisfy the condition specified by the predicate object.
+     * It enters a while loop that continues until the iterator runs out of elements.
+     * Inside the loop, it calls the predicate object's predicate method on the current element of the iterator,
+     * and then checks if the result of the predicate method is true.
+     * If the result of the predicate method is true, then the method increments the count variable by 1.
+     * After the while loop finishes, the method returns the count variable as the result.
+     * @author Luthfi Misbachul Munir
+     * @return Returns true if the email and password are valid.
+     */
     public static <T> int count(Iterator<T> iterator, Predicate<T> pred) {
         int count = 0;
         while (iterator.hasNext())

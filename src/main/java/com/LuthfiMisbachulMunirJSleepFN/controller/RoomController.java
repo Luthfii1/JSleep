@@ -49,7 +49,8 @@ public class RoomController implements BasicGetController<Room> {
         System.out.println("Address: " + address);
         System.out.println("Bed: " + bedType);
         Account account = Algorithm.<Account>find(AccountController.accountTable, pred -> pred.id == accountId && pred.renter != null);
-        System.out.println(account);
+        System.out.println(account == null);
+
         if(account == null) return null;
         else{
             Room room = new Room(accountId, name, size, new Price(price), facility, city, address, bedType);
