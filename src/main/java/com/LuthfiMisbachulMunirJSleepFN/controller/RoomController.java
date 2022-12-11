@@ -67,4 +67,62 @@ public class RoomController implements BasicGetController<Room> {
     ){
         return Algorithm.paginate(getJsonTable(), page, pageSize, pred -> true);
     }
+
+    @GetMapping("/filterByCity")
+    List<Room> filterByCity(
+            @RequestParam City city
+    ){
+        return Algorithm.<Room>collect(getJsonTable(),kamar -> kamar.city == city);
+    }
+
+    /**
+     * This method is used to filter room by Name
+     * @param name name of the room that will be filtered
+     * @return list of room that match the name
+     * @author Luthfi
+     */
+    @GetMapping("/collectByName")
+    List<Room> filterByName(
+            @RequestParam String name
+    ){
+        return Algorithm.<Room>collect(getJsonTable(),kamar -> kamar.name.contains(name));
+    }
+
+    /**
+     * This method is used to filter room by bed Type
+     * @param bedType bed type of the room that will be filtered
+     * @return list of room that match the bed type
+     */
+    @GetMapping("/collectByBedType")
+    List<Room> filterByBedType(
+            @RequestParam BedType bedType
+    ){
+        return Algorithm.<Room>collect(getJsonTable(),kamar -> kamar.bedType == bedType);
+    }
+
+    /**
+     * This method is used to filter room by price
+     * @param min minimum price
+     * @param max maximum price
+     * @return list of room that match the price
+     * @author Luthfi
+     */
+    @GetMapping("/collectByPrice")
+    List<Room> filterByPrice(
+            @RequestParam int min,
+            @RequestParam int max
+    ){
+        return Algorithm.<Room>collect(getJsonTable(),i -> ((i.price.price >= min) && (i.price.price <= max)));
+    }
+
+    /**
+     * This method is used to collect all room
+     * @return list of room that match the facility
+     * @author Luthfi
+     */
+    @GetMapping("/collectRoom")
+    List<Room> collectRoom(
+    ){
+        return Algorithm.<Room>collect(getJsonTable(),pred -> true);
+    }
 }
